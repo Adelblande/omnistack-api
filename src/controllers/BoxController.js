@@ -13,6 +13,12 @@ class BoxController {
 
         return res.json(box)
     }
+    async destroy(req, res) {
+        const box = await Box.findById(req.params.id);
+        await box.delete()
+
+    }
+    
 }
 
 module.exports = new BoxController()
